@@ -5,17 +5,8 @@ import 'package:my_app/Models/nots_models.dart';
 import 'package:my_app/state_management/provider/count_provider.dart';
 import 'package:my_app/state_management/provider/example_one_provider.dart';
 import 'package:my_app/state_management/screen/example_one.dart';
-//import 'package:my_app/state_management/home_screen.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
-
-//import 'e_com/screen/home_screen.dart';
-//import 'firebase/screen/splash_screen.dart';
-//import 'hive/home_screen.dart';
-
-// import 'apicalling/home.dart';
-//import 'apicalling/home.dart';
-// import 'package:my_app/knocksense/app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,17 +25,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => CountProvider(),),
-        ChangeNotifierProvider(create: (_) => ExampleOneProvider(),)],
-      
+        ChangeNotifierProvider(
+          create: (_) => CountProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ExampleOneProvider(),
+        )
+      ],
       child: MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const ExampleOneScreen(),
       ),
-      home: const ExampleOneScreen(),
-    ),
     );
   }
 }
