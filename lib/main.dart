@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:my_app/Models/nots_models.dart';
 import 'package:my_app/state_management/provider/count_provider.dart';
-import 'package:my_app/state_management/screen/count_example.dart';
+import 'package:my_app/state_management/provider/example_one_provider.dart';
+import 'package:my_app/state_management/screen/example_one.dart';
 //import 'package:my_app/state_management/home_screen.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -31,15 +32,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => CountProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CountProvider(),),
+        ChangeNotifierProvider(create: (_) => ExampleOneProvider(),)],
+      
       child: MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const CountExampke(),
+      home: const ExampleOneScreen(),
     ),
     );
   }
