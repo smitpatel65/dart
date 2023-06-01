@@ -2,10 +2,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:my_app/Models/nots_models.dart';
+import 'package:my_app/state_management/provider/count_provider.dart';
+import 'package:my_app/state_management/screen/count_example.dart';
+//import 'package:my_app/state_management/home_screen.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:provider/provider.dart';
 
 //import 'e_com/screen/home_screen.dart';
-import 'firebase/screen/splash_screen.dart';
+//import 'firebase/screen/splash_screen.dart';
 //import 'hive/home_screen.dart';
 
 // import 'apicalling/home.dart';
@@ -27,13 +31,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ChangeNotifierProvider(
+      create: (_) => CountProvider(),
+      child: MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SplashScreen(),
+      home: const CountExampke(),
+    ),
     );
   }
 }
