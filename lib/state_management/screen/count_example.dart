@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:my_app/state_management/provider/count_provider.dart';
+import 'package:my_app/provider/count_provider.dart';
 import 'package:provider/provider.dart';
 
 class CountExampke extends StatefulWidget {

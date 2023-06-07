@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/state_management/provider/example_one_provider.dart';
+import 'package:my_app/provider/example_one_provider.dart';
 import 'package:provider/provider.dart';
 
 class ExampleOneScreen extends StatefulWidget {

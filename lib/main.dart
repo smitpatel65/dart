@@ -2,15 +2,17 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:my_app/Models/nots_models.dart';
-import 'package:my_app/state_management/provider/auth_provider.dart';
-import 'package:my_app/state_management/provider/count_provider.dart';
-import 'package:my_app/state_management/provider/example_one_provider.dart';
-import 'package:my_app/state_management/provider/favourite_provider.dart';
-import 'package:my_app/state_management/provider/internet_provider.dart';
-import 'package:my_app/state_management/provider/sige_in_provider.dart';
-import 'package:my_app/state_management/provider/theme_changer_provider.dart';
+import 'package:my_app/provider/auth_provider.dart';
+import 'package:my_app/provider/count_provider.dart';
+import 'package:my_app/provider/example_one_provider.dart';
+import 'package:my_app/provider/favourite_provider.dart';
+import 'package:my_app/provider/internet_provider.dart';
+import 'package:my_app/provider/pets_provider.dart';
+import 'package:my_app/provider/sige_in_provider.dart';
+import 'package:my_app/provider/theme_changer_provider.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
+// import 'apicalling/provider_homeScreen.dart';
 import 'firebase/screen/splash_screen.dart';
 import 'firebase_options.dart';
 
@@ -49,11 +51,14 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => AuthProvider(),
         ),
-         ChangeNotifierProvider(
+        ChangeNotifierProvider(
           create: (_) => SignInProvider(),
         ),
         ChangeNotifierProvider(
           create: (_) => InternetProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => PetsProvider(),
         ),
       ],
       child: Builder(builder: (BuildContext context) {

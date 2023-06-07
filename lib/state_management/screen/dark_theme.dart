@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/state_management/provider/theme_changer_provider.dart';
+import 'package:my_app/provider/theme_changer_provider.dart';
 import 'package:provider/provider.dart';
 
 class DarkThemeScreen extends StatefulWidget {

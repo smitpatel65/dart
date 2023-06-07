@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 //import 'package:my_app/apicalling/home_page.dart';
 import 'package:my_app/firebase/screen/login_screen.dart';
-import 'package:my_app/state_management/provider/sige_in_provider.dart';
+import 'package:my_app/provider/sige_in_provider.dart';
 //import 'package:my_app/firebase_services/splash_services.dart';
 import 'package:provider/provider.dart';
 

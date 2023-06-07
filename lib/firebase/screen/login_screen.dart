@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
 import '../../e_com/screen/home_screen.dart';
-import '../../state_management/provider/internet_provider.dart';
-import '../../state_management/provider/sige_in_provider.dart';
+import '../../provider/internet_provider.dart';
+import '../../provider/sige_in_provider.dart';
 import '../../utils/next_screen.dart';
 import '../../utils/snack_bar.dart';
 
