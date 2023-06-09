@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../function/api_function.dart';
+import 'package:my_app/e_com/function/api_function.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -37,12 +36,13 @@ class CartScreen extends StatelessWidget {
                         trailing: IconButton(
                           onPressed: () async {
                             await ApiService().deleteCart('1');
-                            // ignore: use_build_context_synchronously
-                            ScaffoldMessenger.of(context)
-                                .showSnackBar(const SnackBar(
-                              content: Text("Item Deleted Successfully..."),
-                              backgroundColor: Colors.red,
-                            ));
+
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text("Item Deleted Successfully..."),
+                                backgroundColor: Colors.red,
+                              ),
+                            );
                           },
                           icon: const Icon(
                             Icons.delete,

@@ -90,7 +90,6 @@ class _HomeScreenHiveState extends State<HomeScreenHive> {
     await notesModel.delete();
   }
 
-  // ignore: unused_element
   Future<void> _editDialog(
       NotesModel notesModel, String title, String description) async {
     titleController.text = title;
@@ -146,7 +145,6 @@ class _HomeScreenHiveState extends State<HomeScreenHive> {
     );
   }
 
-  // ignore: unused_element
   Future<void> _showMyDialog() async {
     return showDialog(
       context: context,
@@ -180,7 +178,6 @@ class _HomeScreenHiveState extends State<HomeScreenHive> {
                 child: const Text('Cancle')),
             TextButton(
                 onPressed: () {
-                  // ignore: unused_local_variable
                   final data = NotesModel(
                       title: titleController.text,
                       description: descriptionController.text);

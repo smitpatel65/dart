@@ -1,4 +1,4 @@
-package com.example.my_app
+package com.myapp.loginwithfacebook
 
 import io.flutter.embedding.android.FlutterActivity
 

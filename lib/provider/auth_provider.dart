@@ -1,4 +1,3 @@
-// ignore_for_file: avoid_print
 
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
@@ -17,15 +16,15 @@ class AuthProvider with ChangeNotifier {
       Response response = await post(Uri.parse('https://reqres.in/api/login'),
           body: {'email': email, 'password': password});
       if (response.statusCode == 200) {
-        print('successfull');
+        debugPrint('successfull');
         setLoading(false);
       } else {
         setLoading(false);
-        print('failded');
+        debugPrint('failded');
       }
     } catch (e) {
       setLoading(false);
-      print(e.toString());
+      debugPrint(e.toString());
     }
   }
 }

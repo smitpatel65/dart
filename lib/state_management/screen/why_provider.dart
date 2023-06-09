@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -14,11 +12,11 @@ class WhyProviderScreen extends StatefulWidget {
 class _WhyProviderScreenState extends State<WhyProviderScreen> {
   int count = 0;
   @override
-  void initState() { 
+  void initState() {
     super.initState();
     Timer.periodic(const Duration(seconds: 1), (timer) {
       count++;
-      print(count);
+      debugPrint(count.toString());
     });
   }
 

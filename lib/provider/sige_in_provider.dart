@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +18,6 @@ class SignInProvider extends ChangeNotifier {
   bool get isSignedIn => _isSignedIn;
 
   //hasError, errorCode, provider,uid, email, name, imageUrl
-  // ignore: prefer_final_fields
   bool _hasError = false;
   bool get hasError => _hasError;
 
@@ -49,6 +46,7 @@ class SignInProvider extends ChangeNotifier {
     _isSignedIn = s.getBool('signed_is') ?? false;
     notifyListeners();
   }
+
   Future setSignIn() async {
     final SharedPreferences s = await SharedPreferences.getInstance();
     s.setBool("signed_in", true);
@@ -162,18 +160,17 @@ class SignInProvider extends ChangeNotifier {
     DocumentSnapshot snap =
         await FirebaseFirestore.instance.collection('users').doc(_uid).get();
     if (snap.exists) {
-      print("EXISTING USER");
+      debugPrint("EXISTING USER");
       return true;
     } else {
-      print("NEW USER");
+      debugPrint("NEW USER");
       return false;
     }
   }
 
 // signout
   Future userSignOut() async {
-    // ignore: await_only_futures
-    await firebaseAuth.signOut;
+    firebaseAuth.signOut;
     await googleSignIn.signOut();
     await facebookAuth.logOut();
 

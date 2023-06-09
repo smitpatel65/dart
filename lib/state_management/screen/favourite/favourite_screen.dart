@@ -15,8 +15,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: avoid_print
-    print('bild');
+    debugPrint('bild');
     return Scaffold(
       appBar: AppBar(
         title: const Text('Fevourite App'),

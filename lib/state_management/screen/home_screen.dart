@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 
 class StateHomeScreen extends StatefulWidget {
@@ -21,18 +19,18 @@ class _StateHomeScreenState extends State<StateHomeScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(DateTime.now().toString()),
-          // ignore: avoid_unnecessary_containers
-          Container(
-            child: Center(
-                child: Text(count.toString(),
-                    style: const TextStyle(fontSize: 40))),
+          Center(
+            child: Text(
+              count.toString(),
+              style: const TextStyle(fontSize: 40),
+            ),
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             count++;
-            print(count);
+            debugPrint(count.toString());
             setState(() {});
           },
           child: const Icon(Icons.add)),

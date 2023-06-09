@@ -13,8 +13,7 @@ class _MyFavouriteScreenState extends State<MyFavouriteScreen> {
   @override
   Widget build(BuildContext context) {
     final favouriteItemProvider = Provider.of<FavouriteItemProvider>(context);
-    // ignore: avoid_print
-    print('bild');
+    debugPrint('bild');
     return Scaffold(
       appBar: AppBar(
         title: const Text('Fevourite App'),

@@ -3,8 +3,7 @@ import 'package:my_app/e_com/function/api_function.dart';
 
 class ProductDetail extends StatefulWidget {
   final int id;
-  // ignore: use_key_in_widget_constructors
-  const ProductDetail(this.id);
+  const ProductDetail(this.id, {super.key});
   @override
   State<ProductDetail> createState() => _ProductDetailState();
 }

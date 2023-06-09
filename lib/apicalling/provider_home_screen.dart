@@ -1,13 +1,8 @@
-// ignore_for_file: file_names
-
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:my_app/provider/pets_provider.dart';
 import 'package:provider/provider.dart';
-
-
-import '../provider/pets_provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -45,7 +40,7 @@ class _HomePageState extends State<HomePage> {
     return const Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children:  [
+        children: [
           SpinKitFadingCircle(
             color: Colors.blue,
             size: 80,

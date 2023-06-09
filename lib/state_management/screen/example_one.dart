@@ -12,8 +12,8 @@ class ExampleOneScreen extends StatefulWidget {
 class _ExampleOneScreenState extends State<ExampleOneScreen> {
   @override
   Widget build(BuildContext context) {
-    // ignore: avoid_print
-    print('bild');
+    
+    debugPrint('bild');
     return Scaffold(
       appBar: AppBar(
         title: const Text('Exampleone'),

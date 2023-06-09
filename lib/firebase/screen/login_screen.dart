@@ -1,9 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_app/firebase/screen/home_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
-
-import '../../e_com/screen/home_screen.dart';
 import '../../provider/internet_provider.dart';
 import '../../provider/sige_in_provider.dart';
 import '../../utils/next_screen.dart';
@@ -71,7 +72,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       RoundedLoadingButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          handleGoogleSignIn();
+                        },
                         controller: googleController,
                         successColor: Colors.red,
                         width: MediaQuery.of(context).size.width * 0.80,
@@ -198,13 +201,13 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
   Future handleGoogleSignIn() async {
     final sp = context.read<SignInProvider>();
     final ip = context.read<InternetProvider>();
     await ip.checkInternetConnection();
 
     if (ip.hasInternet == false) {
-      // ignore: use_build_context_synchronously
       openSnackbar(context, "Check your Internet connection", Colors.red);
       googleController.reset();
     } else {
@@ -237,6 +240,7 @@ class _LoginScreenState extends State<LoginScreen> {
       });
     }
   }
+
   handleAfterSignIn() {
     Future.delayed(const Duration(milliseconds: 1000)).then((value) {
       nextScreenReplace(context, const HomeScreen());
