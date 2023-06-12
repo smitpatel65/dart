@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_app/firebase/screen/home_screen.dart';
+import 'package:my_app/firebase/screen/phoneauth_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../provider/internet_provider.dart';
@@ -104,7 +105,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       // facebook login button
                       RoundedLoadingButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          handleFacebookAuth();
+                        },
                         controller: facebookController,
                         successColor: Colors.blue,
                         width: MediaQuery.of(context).size.width * 0.80,
@@ -166,7 +169,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       // phoneAuth loading button
                       RoundedLoadingButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          nextScreenReplace(context, const PhoneAuthScreen());
+                          phoneController.reset();
+                        },
                         controller: phoneController,
                         successColor: Colors.black,
                         width: MediaQuery.of(context).size.width * 0.80,
@@ -241,6 +247,59 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
+//handling facebookaut
+  Future handleFacebookAuth() async {
+    final sp = context.read<SignInProvider>();
+    final ip = context.read<InternetProvider>();
+    await ip.checkInternetConnection();
+
+    if (ip.hasInternet == false) {
+      openSnackbar(context, "Check your Internet connection", Colors.red);
+      facebookController.reset();
+    } else {
+      await sp.signInWithFacebook().then(
+        (value) {
+          if (sp.hasError == true) {
+            openSnackbar(context, sp.errorCode.toString(), Colors.red);
+            facebookController.reset();
+          } else {
+            // checking whether user exists or not
+            sp.checkUserExists().then(
+              (value) async {
+                if (value == true) {
+                  // user exists
+                  await sp.getUserDataFromFirestore(sp.uid).then(
+                        (value) => sp.saveDataToSharedPreferences().then(
+                              (value) => sp.setSignIn().then(
+                                (value) {
+                                  facebookController.success();
+                                  handleAfterSignIn();
+                                },
+                              ),
+                            ),
+                      );
+                } else {
+                  // user does not exist
+                  sp.saveDataToFirestore().then(
+                        (value) => sp.saveDataToSharedPreferences().then(
+                              (value) => sp.setSignIn().then(
+                                (value) {
+                                  facebookController.success();
+                                  handleAfterSignIn();
+                                },
+                              ),
+                            ),
+                      );
+                }
+              },
+            );
+          }
+        },
+      );
+    }
+  }
+
+// handle after signin
   handleAfterSignIn() {
     Future.delayed(const Duration(milliseconds: 1000)).then((value) {
       nextScreenReplace(context, const HomeScreen());
