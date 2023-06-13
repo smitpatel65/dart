@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:247436473992:android:ab1b48aded428a2724113d",
         "android_client_info": {
-          "package_name": "com.myapp.loginwithfacebook"
+          "package_name": "com.example.my_app"
         }
       },
       "oauth_client": [

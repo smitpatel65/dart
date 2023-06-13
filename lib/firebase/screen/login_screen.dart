@@ -2,8 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:my_app/firebase/screen/home_screen.dart';
+import 'package:my_app/firebase/screen/home_screen.dart'; 
 import 'package:my_app/firebase/screen/phoneauth_screen.dart';
+import 'package:my_app/firebase/screen/post_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../provider/internet_provider.dart';
@@ -302,7 +303,7 @@ class _LoginScreenState extends State<LoginScreen> {
 // handle after signin
   handleAfterSignIn() {
     Future.delayed(const Duration(milliseconds: 1000)).then((value) {
-      nextScreenReplace(context, const HomeScreen());
+      nextScreenReplace(context, const PostScreen());
     });
   }
 }

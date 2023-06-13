@@ -194,10 +194,10 @@ class _PhoneAuthScreenState extends State<PhoneAuthScreen> {
                                     borderRadius: BorderRadius.circular(8),
                                     borderSide:
                                         const BorderSide(color: Colors.red)),
-                                enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                    borderSide:
-                                        const BorderSide(color: Colors.grey)),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                      borderSide:
+                                          const BorderSide(color: Colors.grey)),
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(8),
                                     borderSide:
