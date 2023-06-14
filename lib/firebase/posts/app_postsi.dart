@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/firebase/screen/round_button.dart';
+import 'package:my_app/utils/utils.dart';
 
 class PostsScreen extends StatefulWidget {
   const PostsScreen({super.key});
@@ -40,18 +41,31 @@ class _PostsScreenState extends State<PostsScreen> {
             ),
             RoundButton(
                 tital: 'Add',
+                loading: loding,
                 ontep: () {
-                  databasRef
-                      .child('1')
-                      .set({
-                        'tital': postController.text.toString(),
-                      })
-                      .then((value) => null)
-                      .onError((error, stackTrace) => null);
+                  setState(() {
+                    loding = true;
+                  });
+                  String id = DateTime.now().millisecondsSinceEpoch.toString();
+                  databasRef.child(id).set({
+                    'title': postController.text.toString(),
+                    'id': id,
+                  }).then((value) {
+                    Utils().toastMessage('post added');
+                    setState(() {
+                      loding = false;
+                    });
+                  }).onError((error, stackTrace) {
+                    Utils().toastMessage(error.toString());
+                    setState(() {
+                      loding = false;
+                    });
+                  });
                 })
           ],
         ),
       ),
     );
   }
-}
+
+ }
