@@ -18,7 +18,7 @@ class NotesModelAdapter extends TypeAdapter<NotesModel> {
     };
     return NotesModel(
       title: fields[0] as String,
-      description: fields[1] as String,
+      description: fields[1] as String, age: 20,
     );
   }
 

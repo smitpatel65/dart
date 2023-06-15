@@ -180,7 +180,7 @@ class _HomeScreenHiveState extends State<HomeScreenHive> {
                 onPressed: () {
                   final data = NotesModel(
                       title: titleController.text,
-                      description: descriptionController.text);
+                      description: descriptionController.text, age: 20);
                   final box = Boxes.gatdata();
                   box.add(data);
                   data.save();

@@ -10,10 +10,9 @@ import 'package:my_app/provider/internet_provider.dart';
 import 'package:my_app/provider/pets_provider.dart';
 import 'package:my_app/provider/sige_in_provider.dart';
 import 'package:my_app/provider/theme_changer_provider.dart';
+import 'package:my_app/sqlite/home__screen_sql.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
-// import 'apicalling/provider_homeScreen.dart';
-import 'firebase/screen/splash_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -76,7 +75,7 @@ class MyApp extends StatelessWidget {
               appBarTheme: const AppBarTheme(
                 backgroundColor: Colors.teal,
               )),
-          home: const SplashScreen(),
+          home: const HomeScreenSql(),
         );
       }),
     );
