@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:my_app/Models/nots_models.dart';
+// import 'package:my_app/Models/nots_models.dart';
 import 'package:my_app/provider/auth_provider.dart';
 import 'package:my_app/provider/count_provider.dart';
 import 'package:my_app/provider/example_one_provider.dart';
@@ -23,8 +23,8 @@ void main() async {
   await Firebase.initializeApp();
   var directory = await getApplicationDocumentsDirectory();
   Hive.init(directory.path);
-  Hive.registerAdapter(NotesModelAdapter());
-  await Hive.openBox<NotesModel>('notes');
+  // Hive.registerAdapter(NotesModelAdapter());
+  // await Hive.openBox<NotesModel>('notes');
   runApp(const MyApp());
 }
 
