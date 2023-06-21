@@ -10,7 +10,7 @@ import 'package:my_app/provider/internet_provider.dart';
 import 'package:my_app/provider/pets_provider.dart';
 import 'package:my_app/provider/sige_in_provider.dart';
 import 'package:my_app/provider/theme_changer_provider.dart';
-import 'package:my_app/sqlite/home__screen_sql.dart';
+import 'package:my_app/stream/stream_home.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
               appBarTheme: const AppBarTheme(
                 backgroundColor: Colors.teal,
               )),
-          home: const HomeScreenSql(),
+          home: const StreamHomeScreen(),
         );
       }),
     );
