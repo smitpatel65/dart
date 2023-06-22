@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-// import 'package:my_app/Models/nots_models.dart';
+import 'package:my_app/apicalling/stream_apicalling.dart';
 import 'package:my_app/provider/auth_provider.dart';
 import 'package:my_app/provider/count_provider.dart';
 import 'package:my_app/provider/example_one_provider.dart';
@@ -10,7 +10,6 @@ import 'package:my_app/provider/internet_provider.dart';
 import 'package:my_app/provider/pets_provider.dart';
 import 'package:my_app/provider/sige_in_provider.dart';
 import 'package:my_app/provider/theme_changer_provider.dart';
-import 'package:my_app/stream/stream_home.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
@@ -75,7 +74,7 @@ class MyApp extends StatelessWidget {
               appBarTheme: const AppBarTheme(
                 backgroundColor: Colors.teal,
               )),
-          home: const StreamHomeScreen(),
+          home: const HomePage(),
         );
       }),
     );
