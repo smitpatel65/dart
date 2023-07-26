@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:my_app/apicalling/stream_apicalling.dart';
+import 'package:my_app/animation/animated_container.dart';
 import 'package:my_app/provider/auth_provider.dart';
 import 'package:my_app/provider/count_provider.dart';
 import 'package:my_app/provider/example_one_provider.dart';
@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
               appBarTheme: const AppBarTheme(
                 backgroundColor: Colors.teal,
               )),
-          home: const HomePage(),
+          home: const AnimatedContainerDemo(),
         );
       }),
     );
